@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import { SecureRoute, Security, LoginCallback } from '@okta/okta-react';
+import { Security, LoginCallback } from '@okta/okta-react';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import HomePage from './components/HomePage'
+import Protected from './components/Protected';
+import { RequiresAuth } from './components/RequiresAuth';
 
 const oktaAuth = new OktaAuth({
   issuer: 'https://dev-16396447.okta.com/oauth2/default',
@@ -24,8 +26,10 @@ function App() {
       <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/protected" element={<div>Protected Route</div>} />
           <Route path="/login/callback" element={<LoginCallback />} />
+          <Route path="/protected" element={<RequiresAuth />}>
+            <Route path="" element={<Protected />} />
+          </Route>
         </Routes>
       </Security>
     </div>
