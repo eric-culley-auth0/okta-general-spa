@@ -81,10 +81,6 @@ button:focus-visible {
   height: 8em;
 }
 
-.card {
-  padding: 2em;
-}
-
 #authenticated-container {
   width: auto;
   display: flex;

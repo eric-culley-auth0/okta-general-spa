@@ -24,7 +24,7 @@ function Home() {
         </button>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        Click on the Okta and React logos to learn more
       </p>
     </Fragment>
   )

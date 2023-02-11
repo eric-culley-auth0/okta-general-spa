@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 import { Security, LoginCallback } from '@okta/okta-react';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import HomePage from './components/HomePage'
-import Protected from './components/Protected';
+import Profile from './components/Profile';
 import { RequiresAuth } from './components/RequiresAuth';
 
 const oktaAuth = new OktaAuth({
@@ -27,8 +27,8 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login/callback" element={<LoginCallback />} />
-          <Route path="/protected" element={<RequiresAuth />}>
-            <Route path="" element={<Protected />} />
+          <Route path="/auth-required" element={<RequiresAuth />}>
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
       </Security>
