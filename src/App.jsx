@@ -4,6 +4,7 @@ import { Security, LoginCallback } from '@okta/okta-react';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import HomePage from './components/HomePage'
 import Profile from './components/Profile';
+import Fetch from './components/Fetch';
 import { RequiresAuth } from './components/RequiresAuth';
 
 const oktaAuth = new OktaAuth({
@@ -29,6 +30,7 @@ function App() {
           <Route path="/login/callback" element={<LoginCallback />} />
           <Route path="/auth-required" element={<RequiresAuth />}>
             <Route path="profile" element={<Profile />} />
+            <Route path="fetch" element={<Fetch />} />
           </Route>
         </Routes>
       </Security>

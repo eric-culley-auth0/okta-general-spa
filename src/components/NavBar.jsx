@@ -17,6 +17,7 @@ const NavBar = () => {
             <button onClick={login}>login</button>
             <button onClick={logout}>logout</button>
             <button><NavLink to="/auth-required/profile">profile</NavLink></button>
+            <button><NavLink to="/auth-required/fetch">fetch</NavLink></button>
             {authState && authState.idToken && authState.accessToken &&
             <div>
                 <h3>Authenticated!</h3>
